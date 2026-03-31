@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIRAP SALES ACADEMY — Overview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
+    background: #07070F;
+    overflow: hidden;
+  }
+
+  .slideshow {
+    width: 100vw; height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .slide {
+    display: none;
+    width: 960px; height: 540px;
+    background: #0D0D18;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.8);
+  }
+  .slide.active { display: flex; flex-direction: column; }
+
+  .grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  .logo {
+    position: absolute; bottom: 20px; right: 28px;
+    z-index: 10; opacity: 0.7;
+  }
+  .logo img { height: 18px; filter: invert(1); }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 12px; align-items: center;
+    z-index: 100;
+  }
+  .nav-btn {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: inherit;
+    transition: background 0.15s;
+    letter-spacing: 0.05em;
+  }
+  .nav-btn:hover { background: rgba(255,255,255,0.15); }
+  .nav-counter {
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+    min-width: 60px; text-align: center;
+    letter-spacing: 0.1em;
+  }
+</style>
+</head>
+<body>
+<div class="slideshow">
+
+<!-- 1. COVER -->
+<div class="slide active" style="background:#0D0D18;align-items:center;justify-content:center;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;text-align:center;">
+    <div style="width:48px;height:2px;background:#F5A623;margin:0 auto 28px;"></div>
+    <div style="font-size:36px;font-weight:800;color:#FFFFFF;letter-spacing:0.18em;line-height:1;">MIRAP SALES ACADEMY</div>
+    <div style="font-size:13px;font-weight:500;color:#F5A623;letter-spacing:0.25em;margin-top:16px;">— Overview —</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.2em;margin-top:10px;text-transform:uppercase;">Sure Innovation / 2026</div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+<!-- 2. なぜ開校するか -->
+<div class="slide" style="padding:44px 64px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="font-size:10px;font-weight:700;color:#F5A623;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;">Why MSA</div>
+    <div style="font-size:26px;font-weight:800;color:#FFFFFF;margin-bottom:16px;">なぜ、MSAを開校するのか</div>
+    <div style="background:rgba(245,166,35,0.08);border-left:4px solid #F5A623;border-radius:0 8px 8px 0;padding:16px 24px;margin-bottom:16px;">
+      <div style="font-size:14.5px;font-weight:700;color:#FFFFFF;line-height:1.8;">社員が楽しみながら、学び実践し成長する<span style="color:#F5A623;">「学習する組織」</span>（ラーニングコミュニティ）をつくる。</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;line-height:1.7;">それが日本最高峰のライフプランカンパニーをつくる上での核となる。</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;">
+      <div style="background:rgba(245,166,35,0.05);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:20px 24px;">
+        <div style="font-size:10px;font-weight:700;color:#F5A623;letter-spacing:0.15em;margin-bottom:12px;">時代の変化</div>
+        <ul style="list-style:none;font-size:13px;color:rgba(255,255,255,0.7);line-height:2;">
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>顧客の求める水準が上がっている</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>社会が求める水準も上がっている<br><span style="font-size:11px;color:rgba(255,255,255,0.4);">→ 倫理・ESG（環境・社会・ガバナンス）</span></li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>国が求める水準も上がっている<br><span style="font-size:11px;color:rgba(255,255,255,0.4);">→ 金融庁の存在</span></li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>複雑・不透明・曖昧・変化の早い時代</li>
+        </ul>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:20px 24px;">
+        <div style="font-size:10px;font-weight:700;color:#F5A623;letter-spacing:0.15em;margin-bottom:12px;">私たちに必要なこと</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.9;">
+          <p style="margin-bottom:10px;"><strong style="color:#fff;">営業力</strong>や<strong style="color:#fff;">タスク処理能力</strong>を高め、高い<strong style="color:#fff;">倫理観</strong>と<strong style="color:#fff;">人間力</strong>を兼ね備え、<strong style="color:#fff;">クリエイティビティ</strong>を発揮し<strong style="color:#fff;">顧客価値を追求</strong>していくこと。</p>
+          <p>学習する組織として仲間と共に<strong style="color:#fff;">進化</strong>し続け、自らの<strong style="color:#fff;">市場価値を最大化</strong>していくこと。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+
+<!-- 4. 全カリキュラム一覧 -->
+<div class="slide" style="padding:32px 48px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="font-size:10px;font-weight:700;color:#F5A623;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px;">Curriculum Map</div>
+    <div style="font-size:20px;font-weight:800;color:#FFFFFF;margin-bottom:14px;">受講対象別 カリキュラム一覧</div>
+    <div style="display:grid;grid-template-columns:1fr 4px 1fr;gap:0;flex:1;align-items:stretch;">
+
+      <!-- 左：全員共通 -->
+      <div style="padding-right:20px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.35);border-radius:4px;padding:4px 12px;margin-bottom:14px;">
+          <div style="width:7px;height:7px;border-radius:50%;background:#F5A623;"></div>
+          <div style="font-size:10px;font-weight:800;color:#F5A623;letter-spacing:0.12em;">全員共通</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="background:rgba(245,166,35,0.05);border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">篠田 礼門</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">自己理解 / 自社理解1・2</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">篠田 礼門</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">マインド（自己愛・可能思考 / 感謝・誠実・素直）</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">篠田 礼門</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">ビジネススキル（フォロワー / リーダー / AI活用）</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">篠田 礼門</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">志</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">花岡 歩</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">目的目標（人生理念 / ビジョン / 目標設定 / タイムマネジメント）</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:3px solid #F5A623;border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">花岡 歩</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">伝達力（質問力・共感力 / 課題発見 / プレゼンテーション）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 区切り線 -->
+      <div style="background:rgba(255,255,255,0.08);margin:0 0;border-radius:2px;"></div>
+
+      <!-- 右：営業部のみ -->
+      <div style="padding-left:20px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:4px 12px;margin-bottom:14px;">
+          <div style="width:7px;height:7px;border-radius:50%;background:#fff;"></div>
+          <div style="font-size:10px;font-weight:800;color:#fff;letter-spacing:0.12em;">営業部のみ</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.4);">IS / Jr FS / FS</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="background:rgba(255,255,255,0.04);border-left:3px solid rgba(255,255,255,0.25);border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">喜多 翔吾</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">営業プロセス1（現状把握 / ニーズ喚起 / 商品説明・YES取り）</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:3px solid rgba(255,255,255,0.25);border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">喜多 翔吾</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">営業プロセス2（テスクロ / 布石 / 競合対策 / クロージング / 紹介）</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:3px solid rgba(255,255,255,0.25);border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">三原 仁</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">商品理解1・2・3</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:3px solid rgba(255,255,255,0.25);border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">三原 仁</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">顧客理解1・2 / 業界理解 / 競合理解（MU）</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:3px solid rgba(255,255,255,0.25);border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">三原 仁</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">アソシエイト実務1・2・3</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:3px solid rgba(255,255,255,0.25);border-radius:0 6px 6px 0;padding:8px 14px;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:3px;">三原 仁</div>
+            <div style="font-size:12px;color:#fff;font-weight:600;">マーケティング思考（市場分析・ライティング・セルフブランディング）</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+<!-- 5. 篠田パート -->
+<div class="slide" style="padding:36px 56px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="margin-bottom:12px;">
+      <div style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.2em;text-transform:uppercase;">INSTRUCTOR</div>
+      <div style="font-size:22px;font-weight:800;color:#FFFFFF;line-height:1.1;">篠田 礼門</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">自己・自社理解 / マインド / ビジネススキル / 志</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+        <span style="font-size:9px;color:rgba(255,255,255,0.3);">凡例</span>
+        <span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">全員共通</span>
+        <span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">営業部のみ</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:1;">
+      <!-- OU -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:16px 18px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">自己・自社理解（OU）</span></div>
+        <ul style="list-style:none;font-size:11.5px;color:rgba(255,255,255,0.8);line-height:2;">
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>自己理解（OU-1）</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>自社理解 Day1（OU-2）</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>自社理解 Day2（OU-3）</li>
+        </ul>
+        <div style="margin-top:10px;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.5;">価値観・役割・<br>ミッションの言語化</div>
+      </div>
+      <!-- MND -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:16px 18px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">マインド（MND）</span></div>
+        <ul style="list-style:none;font-size:11.5px;color:rgba(255,255,255,0.8);line-height:2;">
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>自己愛・可能思考（MND-1）</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>感謝・誠実・素直（MND-2）</li>
+        </ul>
+        <div style="margin-top:10px;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.5;">成功者に共通する<br>マインドセットの習慣化</div>
+      </div>
+      <!-- BS + 志 -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:14px 16px;flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">ビジネススキル（BS）</span></div>
+          <ul style="list-style:none;font-size:11px;color:rgba(255,255,255,0.8);line-height:1.9;">
+            <li style="padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>フォロワーシップ（BS-1）</li>
+            <li style="padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>リーダーシップ（BS-2）</li>
+            <li style="padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>AI活用（BS-3）</li>
+          </ul>
+        </div>
+        <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:14px 16px;flex:1;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">志</span></div>
+          <ul style="list-style:none;font-size:11px;color:rgba(255,255,255,0.8);line-height:1.9;">
+            <li style="padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>人生理念・ビジョン</li>
+            <li style="padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>野心・自己超越</li>
+            <li style="padding-left:10px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>社会貢献</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+<!-- 6. 花岡パート -->
+<div class="slide" style="padding:36px 56px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="margin-bottom:12px;">
+      <div style="font-size:9px;font-weight:700;color:rgba(245,166,35,0.6);letter-spacing:0.2em;text-transform:uppercase;">INSTRUCTOR</div>
+      <div style="font-size:22px;font-weight:800;color:#FFFFFF;line-height:1.1;">花岡 歩</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">目的目標 / 伝達力</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+        <span style="font-size:9px;color:rgba(255,255,255,0.3);">凡例</span>
+        <span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">全員共通</span>
+        <span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">営業部のみ</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;">
+      <!-- 目的目標 -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:20px 24px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;"><span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">目的目標</span></div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:14px;line-height:1.5;">人生の目的を明確にし、行動につながる目標設定力を養う</div>
+        <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.8);line-height:2.2;">
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>人生理念</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>人生ビジョン</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>目標設定</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>タイムマネジメント</li>
+        </ul>
+      </div>
+      <!-- 伝達力 -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:20px 24px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;"><span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">伝達力</span></div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:14px;line-height:1.5;">相手の心を動かすコミュニケーション力・プレゼン力を高める</div>
+        <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.8);line-height:2.2;">
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>質問力・共感力①②</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>課題発見</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>プレゼンテーション</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+<!-- 7. 三原パート -->
+<div class="slide" style="padding:36px 56px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="margin-bottom:12px;">
+      <div style="font-size:9px;font-weight:700;color:rgba(245,166,35,0.6);letter-spacing:0.2em;text-transform:uppercase;">INSTRUCTOR</div>
+      <div style="font-size:22px;font-weight:800;color:#FFFFFF;line-height:1.1;">三原 仁</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">商品理解 / マーケット理解 / アソシエイト実務 / マーケティング思考</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+        <span style="font-size:9px;color:rgba(255,255,255,0.3);">凡例</span>
+        <span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">全員共通</span>
+        <span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">営業部のみ</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;flex:1;">
+      <!-- 商品理解 -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">商品理解</span></div>
+        <ul style="list-style:none;font-size:11.5px;color:rgba(255,255,255,0.8);line-height:2;">
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>商品理解①</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>商品理解②</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>商品理解③</li>
+        </ul>
+        <div style="margin-top:8px;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.5;">投資マンション商品の<br>詳細・強み・特性</div>
+      </div>
+      <!-- マーケット理解 -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">マーケット理解（MU）</span></div>
+        <ul style="list-style:none;font-size:11.5px;color:rgba(255,255,255,0.8);line-height:2;">
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>顧客理解①</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>顧客理解②</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>業界理解</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>競合理解</li>
+        </ul>
+        <div style="margin-top:8px;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.5;">顧客属性・業界構造・<br>競合ポジショニング</div>
+      </div>
+      <!-- マーケティング思考 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;font-weight:700;color:rgba(245,166,35,0.6);letter-spacing:0.12em;">マーケティング思考</span></div>
+        <ul style="list-style:none;font-size:11.5px;color:rgba(255,255,255,0.75);line-height:2;">
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:rgba(245,166,35,0.5);">▸</span>市場分析</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:rgba(245,166,35,0.5);">▸</span>ライティング</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:rgba(245,166,35,0.5);">▸</span>セルフブランディング</li>
+        </ul>
+        <div style="margin-top:8px;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.5;">顧客から選ばれる<br>状態をつくる思考法</div>
+      </div>
+      <!-- アソシエイト実務 -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;font-weight:700;color:rgba(245,166,35,0.6);letter-spacing:0.12em;">アソシエイト実務</span></div>
+        <ul style="list-style:none;font-size:11.5px;color:rgba(255,255,255,0.75);line-height:2;">
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:rgba(245,166,35,0.5);">▸</span>アソシエイト実務①</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:rgba(245,166,35,0.5);">▸</span>アソシエイト実務②</li>
+          <li style="padding-left:12px;position:relative;"><span style="position:absolute;left:0;color:rgba(245,166,35,0.5);">▸</span>アソシエイト実務③</li>
+        </ul>
+        <div style="margin-top:8px;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.5;">契約実務・金融機関・<br>書類フロー理解</div>
+      </div>
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+<!-- 8. 喜多パート -->
+<div class="slide" style="padding:36px 56px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="margin-bottom:12px;">
+      <div style="font-size:9px;font-weight:700;color:rgba(245,166,35,0.6);letter-spacing:0.2em;text-transform:uppercase;">INSTRUCTOR</div>
+      <div style="font-size:22px;font-weight:800;color:#FFFFFF;line-height:1.1;">喜多 翔吾</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">営業プロセス</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+        <span style="font-size:9px;color:rgba(255,255,255,0.3);">凡例</span>
+        <span style="display:inline-block;background:rgba(245,166,35,0.15);border:1px solid #F5A623;color:#F5A623;font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">全</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">全員共通</span>
+        <span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;color:rgba(255,255,255,0.45);">営業部のみ</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;">
+      <!-- 営業プロセス1 -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:20px 24px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;"><span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">営業プロセス 1</span></div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:14px;line-height:1.5;">顧客の課題を深く理解し、的確な提案ができる営業力を養う</div>
+        <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.8);line-height:2.2;">
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>現状把握</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>ニーズ喚起①②</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>商品説明・YES取り①②</li>
+        </ul>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(245,166,35,0.15);font-size:10px;color:rgba(255,255,255,0.35);">ゴール: ロールプレイングで顧客対応認定</div>
+      </div>
+      <!-- 営業プロセス2 -->
+      <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:8px;padding:20px 24px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;"><span style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);font-size:8px;font-weight:800;padding:1px 6px;border-radius:2px;">営</span><span style="font-size:9px;font-weight:700;color:#F5A623;letter-spacing:0.12em;">営業プロセス 2</span></div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:14px;line-height:1.5;">クロージング力・紹介獲得力の向上を目指す</div>
+        <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.8);line-height:2.2;">
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>テスクロ</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>リスク説明・布石</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>競合対策</li>
+          <li style="padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">▸</span>クロージング・紹介獲得</li>
+        </ul>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(245,166,35,0.15);font-size:10px;color:rgba(255,255,255,0.35);">ゴール: 実面談レベルのロールプレイング認定</div>
+      </div>
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+<!-- 8. 第4期スケジュール -->
+<div class="slide" style="padding:28px 40px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="font-size:10px;font-weight:700;color:#F5A623;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:4px;">Schedule</div>
+    <div style="font-size:20px;font-weight:800;color:#FFFFFF;margin-bottom:12px;">第4期 開催スケジュール</div>
+    <div style="display:grid;grid-template-columns:1fr 4px 1fr;gap:0;flex:1;min-height:0;">
+
+      <!-- 左：全員共通 -->
+      <div style="padding-right:16px;overflow-y:auto;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.35);border-radius:4px;padding:3px 10px;margin-bottom:10px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#F5A623;"></div>
+          <div style="font-size:9px;font-weight:800;color:#F5A623;letter-spacing:0.1em;">全員共通</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <!-- 4月 -->
+          <div style="font-size:8px;font-weight:700;color:rgba(245,166,35,0.5);letter-spacing:0.15em;padding:2px 0 2px 8px;">— 4月 —</div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid #F5A623;border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜OU-1</div><div style="font-size:11px;color:#fff;font-weight:600;">自己理解</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">4/3（木）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.5);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜OU-2</div><div style="font-size:11px;color:#fff;font-weight:600;">自社理解 Day1</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">4/9（木）13:00–15:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜目的目標①</div><div style="font-size:11px;color:#fff;font-weight:600;">人生理念</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">4/14（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.5);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜OU-3</div><div style="font-size:11px;color:#fff;font-weight:600;">自社理解 Day2</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">4/16（木）13:00–15:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜目的目標②</div><div style="font-size:11px;color:#fff;font-weight:600;">人生ビジョン</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">4/21（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜目的目標③</div><div style="font-size:11px;color:#fff;font-weight:600;">目標設定</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">4/28（火）10:00–12:00</div>
+          </div>
+          <!-- 5月 -->
+          <div style="font-size:8px;font-weight:700;color:rgba(245,166,35,0.5);letter-spacing:0.15em;padding:4px 0 2px 8px;">— 5月 —</div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜目的目標④</div><div style="font-size:11px;color:#fff;font-weight:600;">タイムマネジメント</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">5/12（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜伝達力①</div><div style="font-size:11px;color:#fff;font-weight:600;">質問力・共感力１</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">5/19（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜伝達力②</div><div style="font-size:11px;color:#fff;font-weight:600;">質問力・共感力２</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">5/26（火）10:00–12:00</div>
+          </div>
+          <!-- 6月 -->
+          <div style="font-size:8px;font-weight:700;color:rgba(245,166,35,0.5);letter-spacing:0.15em;padding:4px 0 2px 8px;">— 6月 —</div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜伝達力③</div><div style="font-size:11px;color:#fff;font-weight:600;">課題発見</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">6/2（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">花岡｜伝達力④</div><div style="font-size:11px;color:#fff;font-weight:600;">プレゼンテーション</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">6/9（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.5);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜MND-1</div><div style="font-size:11px;color:#fff;font-weight:600;">自己愛・可能思考</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">6/16（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.5);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜MND-2</div><div style="font-size:11px;color:#fff;font-weight:600;">感謝・誠実・素直</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">6/23（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.5);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜BS-1</div><div style="font-size:11px;color:#fff;font-weight:600;">フォロワーシップ</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">6/30（火）10:00–12:00</div>
+          </div>
+          <!-- 7月 -->
+          <div style="font-size:8px;font-weight:700;color:rgba(245,166,35,0.5);letter-spacing:0.15em;padding:4px 0 2px 8px;">— 7月 —</div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.5);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜BS-2</div><div style="font-size:11px;color:#fff;font-weight:600;">リーダーシップ</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">7/7（火）10:00–12:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.06);border-left:2px solid rgba(245,166,35,0.5);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.4);">篠田｜BS-3</div><div style="font-size:11px;color:#fff;font-weight:600;">AI活用</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.45);">7/14（火）10:00–12:00</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 区切り線 -->
+      <div style="background:rgba(255,255,255,0.08);border-radius:2px;"></div>
+
+      <!-- 右：営業部のみ -->
+      <div style="padding-left:16px;overflow-y:auto;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:3px 10px;margin-bottom:10px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#fff;"></div>
+          <div style="font-size:9px;font-weight:800;color:#fff;letter-spacing:0.1em;">営業部のみ</div>
+          <div style="font-size:8px;color:rgba(255,255,255,0.4);">IS / Jr FS / FS</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <!-- 4月 -->
+          <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.15em;padding:2px 0 2px 8px;">— 4月 —</div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P1①</div><div style="font-size:11px;color:#fff;font-weight:600;">現状把握</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">4/2（木）13:00–15:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P1②</div><div style="font-size:11px;color:#fff;font-weight:600;">ニーズ喚起１</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">4/6（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P1③</div><div style="font-size:11px;color:#fff;font-weight:600;">ニーズ喚起２</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">4/13（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P1④</div><div style="font-size:11px;color:#fff;font-weight:600;">商品説明・YES取り１</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">4/20（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(245,166,35,0.5);">三原｜商品理解①</div><div style="font-size:11px;color:#fff;font-weight:600;">商品理解１</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">4/20（月）11:00–13:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P1⑤</div><div style="font-size:11px;color:#fff;font-weight:600;">商品説明・YES取り２</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">4/27（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(245,166,35,0.5);">三原｜商品理解②</div><div style="font-size:11px;color:#fff;font-weight:600;">商品理解２</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">4/27（月）11:00–13:00</div>
+          </div>
+          <!-- 5月 -->
+          <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.15em;padding:4px 0 2px 8px;">— 5月 —</div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P2①</div><div style="font-size:11px;color:#fff;font-weight:600;">テスクロ</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">5/11（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(245,166,35,0.5);">三原｜商品理解③</div><div style="font-size:11px;color:#fff;font-weight:600;">商品理解３</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">5/11（月）11:00–13:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P2②</div><div style="font-size:11px;color:#fff;font-weight:600;">リスク説明・布石</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">5/18（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(245,166,35,0.5);">三原｜MU①</div><div style="font-size:11px;color:#fff;font-weight:600;">顧客理解１</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">5/18（月）11:00–13:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P2③</div><div style="font-size:11px;color:#fff;font-weight:600;">競合対策</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">5/25（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(245,166,35,0.5);">三原｜MU②</div><div style="font-size:11px;color:#fff;font-weight:600;">顧客理解２</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">5/25（月）11:00–13:00</div>
+          </div>
+          <!-- 6月 -->
+          <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.15em;padding:4px 0 2px 8px;">— 6月 —</div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P2④</div><div style="font-size:11px;color:#fff;font-weight:600;">クロージング</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">6/1（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(245,166,35,0.5);">三原｜MU③</div><div style="font-size:11px;color:#fff;font-weight:600;">業界理解</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">6/2（火）11:00–13:00</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(255,255,255,0.35);">喜多｜営業P2⑤</div><div style="font-size:11px;color:#fff;font-weight:600;">紹介獲得</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">6/8（月）14:00–16:00</div>
+          </div>
+          <div style="background:rgba(245,166,35,0.05);border-left:2px solid rgba(245,166,35,0.3);border-radius:0 4px 4px 0;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;">
+            <div><div style="font-size:8px;color:rgba(245,166,35,0.5);">三原｜MU④</div><div style="font-size:11px;color:#fff;font-weight:600;">競合理解</div></div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,0.4);">6/8（月）11:00–13:00</div>
+          </div>
+          <!-- 三原 残り TBD -->
+          <div style="margin-top:6px;background:rgba(255,255,255,0.02);border:1px dashed rgba(245,166,35,0.2);border-radius:4px;padding:8px 12px;">
+            <div style="font-size:8px;color:rgba(245,166,35,0.4);margin-bottom:4px;">三原 仁｜アソシエイト実務1〜3 / マーケティング思考</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3);font-style:italic;">日程調整中</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+<!-- 5. Before / After -->
+<div class="slide" style="padding:40px 60px;">
+  <div class="grain"></div>
+  <div style="position:relative;z-index:1;height:100%;display:flex;flex-direction:column;">
+    <div style="font-size:10px;font-weight:700;color:#F5A623;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;">Expected Transformation</div>
+    <div style="font-size:24px;font-weight:800;color:#FFFFFF;margin-bottom:20px;">受講生に期待する変化</div>
+    <div style="display:grid;grid-template-columns:1fr 40px 1fr;gap:0;flex:1;align-items:start;">
+      <!-- Before -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:18px 22px;">
+        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:0.15em;margin-bottom:14px;">BEFORE</div>
+        <ul style="list-style:none;font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.9;">
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;">—</span>何のために働くのか、言語化できていない</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;">—</span>目の前の業務をこなすだけ</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;">—</span>自社の理念・ビジョンを自分事にできていない</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;">—</span>お金・経済・社会への理解が浅い</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;">—</span>倫理観・人間力の育成機会がない</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;">—</span>キャリアの方向性が不明確</li>
+        </ul>
+      </div>
+      <!-- Arrow -->
+      <div style="display:flex;align-items:center;justify-content:center;height:100%;">
+        <div style="font-size:24px;color:#F5A623;font-weight:300;">→</div>
+      </div>
+      <!-- After -->
+      <div style="background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.25);border-radius:8px;padding:18px 22px;">
+        <div style="font-size:11px;font-weight:700;color:#F5A623;letter-spacing:0.15em;margin-bottom:14px;">AFTER</div>
+        <ul style="list-style:none;font-size:12.5px;color:rgba(255,255,255,0.85);line-height:1.9;">
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">✦</span><strong style="color:#fff;">稼ぐ力・売れる力</strong>が身についている</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">✦</span>ミッションを持ち、<strong style="color:#fff;">主体的に仕事</strong>に取り組んでいる</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">✦</span>会社のビジョンを<strong style="color:#fff;">自分のキャリアと統合</strong>できている</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">✦</span><strong style="color:#fff;">お金・経済・社会</strong>を深く理解している</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">✦</span><strong style="color:#fff;">高い倫理観・利他の心</strong>を持って顧客に向き合う</li>
+          <li style="padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:#F5A623;">✦</span><strong style="color:#fff;">物心ともに豊か</strong>な人生を歩んでいる</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="18" alt="SURE INNOVATION"></div>
+</div>
+
+
+
+</div><!-- slideshow -->
+
+<div class="nav">
+  <button class="nav-btn" onclick="changeSlide(-1)">← PREV</button>
+  <span class="nav-counter" id="counter">01 / 11</span>
+  <button class="nav-btn" onclick="changeSlide(1)">NEXT →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    document.getElementById('counter').textContent =
+      String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+
+  }
+  function changeSlide(dir) { showSlide(current + dir); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  });
+</script>
+</body>
+</html>
