@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSA OU-1 自己理解</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; background: #1a1a1a; overflow: hidden; }
+
+  .slideshow { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+
+  .slide {
+    display: none;
+    width: 960px;
+    height: 540px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  }
+  .slide.active { display: flex; flex-direction: column; }
+
+  /* ロゴ */
+  .logo {
+    position: absolute;
+    bottom: 18px;
+    right: 28px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.05em;
+  }
+  .logo-icon {
+    width: 22px;
+    height: 22px;
+    background: #F5A623;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  /* カバースライド */
+  .slide-cover {
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-cover .main-title {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: #111;
+  }
+
+  /* セクションタイトル */
+  .slide-section {
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-section .section-label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .slide-section .section-title {
+    font-size: 58px;
+    font-weight: 900;
+    color: #111;
+  }
+
+  /* 前置きスライド（NEW） */
+  .slide-preface {
+    background: #FFF9F0;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 80px;
+  }
+  .preface-badge {
+    background: #F5A623;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+  .preface-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  .preface-body {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.9;
+    text-align: center;
+    max-width: 720px;
+  }
+  .preface-body strong {
+    color: #F5A623;
+    font-weight: 800;
+  }
+
+  /* 通常コンテンツスライド */
+  .slide-content {
+    padding: 44px 64px 44px 64px;
+  }
+  .slide-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #F5A623;
+    display: inline-block;
+  }
+  .slide-subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 28px;
+  }
+  .bullet-list {
+    list-style: none;
+    margin-top: 20px;
+  }
+  .bullet-list li {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.7;
+    padding: 6px 0 6px 22px;
+    position: relative;
+  }
+  .bullet-list li::before {
+    content: '●';
+    color: #F5A623;
+    font-size: 10px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+  }
+  .bullet-list li strong {
+    font-weight: 700;
+    color: #111;
+  }
+
+  /* セクションヘッダースライド（①〜⑤） */
+  .slide-phase {
+    align-items: center;
+    justify-content: center;
+  }
+  .phase-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #111;
+  }
+  .phase-img {
+    width: 320px;
+    height: 220px;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    border-radius: 12px;
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+  }
+  .phase-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  /* 事前課題スライド */
+  .slide-question {
+    align-items: center;
+    justify-content: center;
+    padding: 40px 60px;
+  }
+  .question-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 36px;
+    align-self: flex-start;
+  }
+  .question-box {
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    padding: 36px 48px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .quote-mark-open {
+    color: #F5A623;
+    font-size: 52px;
+    line-height: 1;
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    font-family: Georgia, serif;
+  }
+  .quote-mark-close {
+    color: #F5A623;
+    font-size: 52px;
+    line-height: 1;
+    position: absolute;
+    bottom: -4px;
+    right: 18px;
+    font-family: Georgia, serif;
+  }
+  .question-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.7;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .question-bg {
+    background: #F5A623;
+    margin: -40px -60px;
+    padding: 40px 60px;
+    width: calc(100% + 120px);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 0 0 0 0;
+  }
+  .question-bg-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  /* 価値観スライド */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    margin-top: 16px;
+    font-size: 10.5px;
+    color: #333;
+    line-height: 1.6;
+  }
+  .values-col { padding: 0 8px; }
+
+  /* ワーク入力スライド */
+  .work-slide {
+    padding: 40px 60px;
+  }
+  .work-item {
+    margin-bottom: 24px;
+  }
+  .work-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    border-bottom: 2px solid #F5A623;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .work-box {
+    width: 100%;
+    height: 80px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  .work-box-large {
+    height: 120px;
+  }
+
+  /* ナビゲーション */
+  .nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 100;
+  }
+  .nav-btn {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+  }
+  .nav-btn:hover { background: rgba(255,255,255,0.3); }
+  .nav-counter {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  /* ミッションステートメント例 */
+  .mission-example {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 28px 36px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.9;
+  }
+
+  /* ナインブロックス */
+  .nine-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-top: 20px;
+    height: 340px;
+  }
+  .block {
+    border: 1.5px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* アサインメント */
+  .assignment-box {
+    background: #111;
+    color: #fff;
+    border-radius: 12px;
+    padding: 36px 48px;
+    margin-top: 28px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.8;
+    text-align: center;
+  }
+  .assignment-box strong {
+    color: #F5A623;
+  }
+</style>
+</head>
+<body>
+<div class="slideshow">
+
+  <!-- 1. カバー -->
+  <div class="slide slide-cover active">
+    <div class="main-title">MIRAP SALES ACADEMY</div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 2. セクションタイトル -->
+  <div class="slide slide-section">
+    <div class="section-label">OU-1（Own Understanding）</div>
+    <div class="section-title">自己理解</div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 3. 前置き（NEW） -->
+  <div class="slide slide-preface">
+    <div class="preface-badge">本講座について</div>
+    <div class="preface-title">なぜ全社員が受講するのか</div>
+    <div class="preface-body">
+      本講座はMIRAP SALES ACADEMYの一環として設計されましたが、<br>
+      <strong>自己理解は職種を問わず、成長・意思決定・人間関係<br>すべての土台となるもの</strong>です。<br><br>
+      営業・非営業問わず、全社員を対象とした講座です。
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 4. 自己理解の重要性 -->
+  <div class="slide slide-content">
+    <div class="slide-title">自己理解の重要性</div>
+    <div style="font-size:12px;color:#888;margin-bottom:4px;">授業概要</div>
+    <ul class="bullet-list" style="margin-top:12px;">
+      <li>本講義では、自分自身の<strong>価値観、強み、弱み</strong>を深く理解することを目的とします。</li>
+      <li>自己理解は、<strong>ビジネスパーソン</strong>としての成長の基盤であり、意思決定の質を向上させる重要な要素です。</li>
+      <li>自分の<strong>特性</strong>を知ることで、適切な<strong>目標設定</strong>が可能となり、キャリア戦略の方向性を明確にすることができます。</li>
+      <li>どんな役割においても、自己の<strong>信念やスタンス</strong>が仕事の質や周囲との関係性に影響を与えます。</li>
+      <li>本授業を通じて、自分の価値観を<strong>言語化</strong>し、ビジネスにおける自分の<strong>強み</strong>を最大限活かすための土台を築きます。</li>
+    </ul>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 5. ①事前課題の発表 -->
+  <div class="slide slide-phase">
+    <div class="phase-inner">
+      <div class="phase-title">①事前課題の発表（10分）</div>
+      <div class="phase-img">📋</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 6. Q1 -->
+  <div class="slide slide-question" style="background:#fff;">
+    <div class="question-label">事前課題１</div>
+    <div style="background:#F5A623;width:100%;padding:40px 60px;border-radius:12px;position:relative;">
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;top:10px;left:20px;font-family:Georgia">"</div>
+      <div style="font-size:22px;font-weight:700;color:#111;text-align:center;line-height:1.7;padding:0 20px;">
+        あなたはなぜシュアーイノベーションに入りましたか？<br>
+        なぜ今の仕事・職種を選びましたか？
+      </div>
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;bottom:0px;right:20px;font-family:Georgia">"</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 7. Q2 -->
+  <div class="slide slide-question" style="background:#fff;">
+    <div class="question-label">事前課題２</div>
+    <div style="background:#F5A623;width:100%;padding:50px 60px;border-radius:12px;position:relative;">
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;top:10px;left:20px;font-family:Georgia">"</div>
+      <div style="font-size:24px;font-weight:700;color:#111;text-align:center;line-height:1.7;padding:0 20px;">
+        あなたの強みと弱みを教えてください
+      </div>
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;bottom:0px;right:20px;font-family:Georgia">"</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 8. Q3 -->
+  <div class="slide slide-question" style="background:#fff;">
+    <div class="question-label">事前課題３</div>
+    <div style="background:#F5A623;width:100%;padding:40px 60px;border-radius:12px;position:relative;">
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;top:10px;left:20px;font-family:Georgia">"</div>
+      <div style="font-size:22px;font-weight:700;color:#111;text-align:center;line-height:1.7;padding:0 20px;">
+        これまでに会った人で、尊敬し、<br>手本としたい人は誰ですか？
+      </div>
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;bottom:0px;right:20px;font-family:Georgia">"</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 9. Q4 -->
+  <div class="slide slide-question" style="background:#fff;">
+    <div class="question-label">事前課題４</div>
+    <div style="background:#F5A623;width:100%;padding:50px 60px;border-radius:12px;position:relative;">
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;top:10px;left:20px;font-family:Georgia">"</div>
+      <div style="font-size:24px;font-weight:700;color:#111;text-align:center;line-height:1.7;padding:0 20px;">
+        あなたが大切にしている言葉は何ですか？
+      </div>
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;bottom:0px;right:20px;font-family:Georgia">"</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 10. Q5 -->
+  <div class="slide slide-question" style="background:#fff;">
+    <div class="question-label">事前課題５</div>
+    <div style="background:#F5A623;width:100%;padding:36px 60px;border-radius:12px;position:relative;">
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;top:10px;left:20px;font-family:Georgia">"</div>
+      <div style="font-size:20px;font-weight:700;color:#111;text-align:center;line-height:1.8;padding:0 20px;">
+        あなたがこれまで読んだ一番好きな本、<br>あるいは好きな映画は何ですか？<br>それはなぜですか？
+      </div>
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;bottom:0px;right:20px;font-family:Georgia">"</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 11. Q6 -->
+  <div class="slide slide-question" style="background:#fff;">
+    <div class="question-label">事前課題６</div>
+    <div style="background:#F5A623;width:100%;padding:32px 60px;border-radius:12px;position:relative;">
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;top:10px;left:20px;font-family:Georgia">"</div>
+      <div style="font-size:19px;font-weight:700;color:#111;text-align:center;line-height:1.8;padding:0 20px;">
+        幼少期（5歳〜10歳くらい）に<br>一番ワクワクした、テンションが上がった瞬間は<br>どんな瞬間ですか？<br>瞬間を切り取った具体的な状況を教えてください。
+      </div>
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;bottom:0px;right:20px;font-family:Georgia">"</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 12. Q7 -->
+  <div class="slide slide-question" style="background:#fff;">
+    <div class="question-label">事前課題７</div>
+    <div style="background:#F5A623;width:100%;padding:46px 60px;border-radius:12px;position:relative;">
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;top:10px;left:20px;font-family:Georgia">"</div>
+      <div style="font-size:22px;font-weight:700;color:#111;text-align:center;line-height:1.7;padding:0 20px;">
+        これだけは貫きたい、何があっても守りたいと<br>思うことは何ですか？
+      </div>
+      <div style="color:#fff;font-size:42px;line-height:1;position:absolute;bottom:0px;right:20px;font-family:Georgia">"</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 13. ②価値観の言語化 -->
+  <div class="slide slide-phase">
+    <div style="display:flex;align-items:center;gap:60px;">
+      <div class="phase-title">②価値観の言語化（20分）</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://docs.google.com/forms/d/e/1FAIpQLSeYqbP3b3chvMTX4p8XEmVeR9v5ADipOPIKX6f3y8X_6xDZ2g/viewform" width="140" height="140" style="border-radius:8px;border:3px solid #F5A623;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYqbP3b3chvMTX4p8XEmVeR9v5ADipOPIKX6f3y8X_6xDZ2g/viewform" target="_blank" style="background:#F5A623;color:#111;font-size:13px;font-weight:700;padding:8px 20px;border-radius:20px;text-decoration:none;">フォームを開く</a>
+      </div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 14. 価値観の例 -->
+  <div class="slide slide-content" style="padding:16px 40px 28px;">
+    <div class="slide-title" style="font-size:18px;margin-bottom:4px;">価値観の例</div>
+    <div class="values-grid" style="margin-top:6px;font-size:9.2px;line-height:1.48;">
+      <div class="values-col">
+        <div>1 受容：ありのままの自分を受け入れてもらう</div><div>2 正確：自分の意見や信念正しく伝える</div><div>3 達成：なにか重要なことを達成する</div><div>4 冒険：新しくてワクワクする体験をする</div><div>5 魅力：身体的な魅力を保つ</div><div>6 権威：他者に対して責任を持って指導する</div><div>7 自治：人まかせにしないで自分で決める</div><div>8 美的：身のまわりの美しいものを味わう</div><div>9 庇護：他者のめんどうをみる</div><div>10 挑戦：難しい仕事や問題に取り組む</div><div>11 変化：変化に富んだバラエティ豊かな人生を送る</div><div>12 快適：喜びに満ちた快適な人生を送る</div><div>13 誓約：絶対に破れない約束や誓いを結ぶ</div><div>14 慈愛：他者を心配して助ける</div><div>15 貢献：世界の役に立つことをする</div><div>16 協調：他者と協力して何かをする</div><div>17 礼儀：他者に対して誠実で礼儀正しく接する</div><div>18 創造：新しくて斬新なアイデアを生む</div><div>19 信頼：信用があって頼れる人間になる</div><div>20 義務：自分の義務と責任を果たす</div><div>21 調和：周囲の環境と調和しながら生きる</div><div>22 興奮：スリルと刺激に満ちた人生を送る</div><div>23 貞節：パートナーにウソをつかず誠実に生きる</div><div>24 名声：有名になって存在を認められる</div><div>25 家族：幸福で愛に満ちた家庭を作る</div><div>26 体力：丈夫で強い身体を保つ</div><div>27 柔軟：新たな環境にも簡単になじむ</div>
+      </div>
+      <div class="values-col">
+        <div>28 許し：他人を許しながら生きる</div><div>29 友情：親密で助け合える友人を作る</div><div>30 愉楽：遊んで楽しむこと</div><div>31 寛大：自分の物を他人にあたえる</div><div>32 真実：自分が正しいと思うとおりに行動する</div><div>33 信教：自分を超えた存在の意思を考える</div><div>34 成長：変化と成長を維持する</div><div>35 健康：健やかで体調よく生きる</div><div>36 有益：他人の役に立つこと</div><div>37 正直：ウソをつかず正直に生きる</div><div>38 希望：ポジティブで楽観的に生きる</div><div>39 謙遜：地味で控えめに生きる</div><div>40 笑い：人生や世界のユーモラスな側面を見る</div><div>41 独立：他者に依存しないで生きる</div><div>42 勤勉：自分の仕事に一生懸命取り組む</div><div>43 平安：自分の内面の平和を維持する</div><div>44 親密：プライベートな体験を他人とシェアする</div><div>45 正義：すべての人を公平に扱う</div><div>46 知識：価値ある知識を学ぶ、また生み出す</div><div>47 余暇：自分の時間をリラックスして楽しむ</div><div>48 寵愛：親しい人から愛される</div><div>49 愛慕：誰かに愛をあたえる</div><div>50 熟達：いつもの仕事・作業に習熟する</div><div>51 現在：いまの瞬間に集中して生きる</div><div>52 適度：過剰を避けてほどよいところを探す</div><div>53 単婚：唯一の愛し合える相手を見つける</div>
+      </div>
+      <div class="values-col">
+        <div>54 反抗：権威やルールに疑問を持って挑む</div><div>55 配慮：他人を心づかって世話すること</div><div>56 開放：新たな体験、発想、選択肢に心を開く</div><div>57 秩序：整理されて秩序のある人生を送る</div><div>58 情熱：発想、活動、人々に深い感情を抱く</div><div>59 快楽：良い気分になること</div><div>60 人気：多くの人に好かれる</div><div>61 権力：他人をコントロールする</div><div>62 目的：人生の意味と方向性を定める</div><div>63 合理：理性と論理に従う</div><div>64 現実：現実的、実践的にふるまう</div><div>65 責任：責任をもって行動する</div><div>66 危険：リスクを取ってチャンスを手に入れる</div><div>67 恋愛：興奮して燃えるような恋をする</div><div>68 安全：安心感を得る</div><div>69 受諾：ありのままの自分を受け入れる</div><div>70 自制：自分の行動を自分でコントロールする</div><div>71 自尊：自分に自信を持つ</div><div>72 自知：自分について深い理解を持つ</div><div>73 献身：誰かに奉仕する</div><div>74 性愛：活動的で満足のいく性生活を送る</div><div>75 単純：シンプルでミニマルな暮らしをする</div><div>76 孤独：１人でいられる時間と空間を持つ</div><div>77 精神：精神的に成長し成熟する</div><div>78 安定：いつも一定して変化のない人生を送る</div><div>79 寛容：自分と違う存在を尊重して受け入れる</div><div>80 伝統：過去から受け継がれたものを尊重する</div>
+      </div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 15〜17. 価値観ワーク x3 -->
+  <div class="slide work-slide">
+    <div class="work-item">
+      <div class="work-label">大切にしている価値観は？</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">その説明文</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <div class="slide work-slide">
+    <div class="work-item">
+      <div class="work-label">大切にしている価値観は？</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">その説明文</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <div class="slide work-slide">
+    <div class="work-item">
+      <div class="work-label">大切にしている価値観は？</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">その説明文</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 18. ③役割の言語化 -->
+  <div class="slide slide-phase">
+    <div style="display:flex;align-items:center;gap:60px;">
+      <div class="phase-title">③役割の言語化（20分）</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://docs.google.com/forms/d/e/1FAIpQLSe9ZWRXQ_-n97bznWTFfiGjJCyD5RvnT_oktwScXhaGahgBDQ/viewform" width="140" height="140" style="border-radius:8px;border:3px solid #F5A623;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9ZWRXQ_-n97bznWTFfiGjJCyD5RvnT_oktwScXhaGahgBDQ/viewform" target="_blank" style="background:#F5A623;color:#111;font-size:13px;font-weight:700;padding:8px 20px;border-radius:20px;text-decoration:none;">フォームを開く</a>
+      </div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 19〜21. 役割ワーク x3 -->
+  <div class="slide work-slide" style="padding:36px 60px;">
+    <div class="work-item">
+      <div class="work-label">役割</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">対象者</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">長期的な目標</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <div class="slide work-slide" style="padding:36px 60px;">
+    <div class="work-item">
+      <div class="work-label">役割</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">対象者</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">長期的な目標</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <div class="slide work-slide" style="padding:36px 60px;">
+    <div class="work-item">
+      <div class="work-label">役割</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">対象者</div>
+      <div class="work-box"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">長期的な目標</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 22. ④ミッションステートメント -->
+  <div class="slide slide-phase">
+    <div style="display:flex;align-items:center;gap:60px;">
+      <div class="phase-title">④ミッションステートメント（30分）</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://docs.google.com/forms/d/e/1FAIpQLSc42r-9tFnKp4viMJ04pSODZ9Y1LtsxNEYxU13ONsRMypraeA/viewform" width="140" height="140" style="border-radius:8px;border:3px solid #F5A623;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc42r-9tFnKp4viMJ04pSODZ9Y1LtsxNEYxU13ONsRMypraeA/viewform" target="_blank" style="background:#F5A623;color:#111;font-size:13px;font-weight:700;padding:8px 20px;border-radius:20px;text-decoration:none;">フォームを開く</a>
+      </div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 23. Be / Do -->
+  <div class="slide work-slide" style="padding:36px 60px;">
+    <div class="work-item">
+      <div class="work-label">あなたは、どのような人物になりたいですか？（Be）</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="work-item">
+      <div class="work-label">あなたが本当にやりたいことは何ですか？（Do）</div>
+      <div class="work-box work-box-large"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 24. Have -->
+  <div class="slide work-slide" style="padding:60px;">
+    <div class="work-item">
+      <div class="work-label">あなたが本当に手に入れたいものは何ですか？（Have）</div>
+      <div class="work-box" style="height:200px;"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 25. 時間・資源が無限なら -->
+  <div class="slide work-slide" style="padding:48px 60px;">
+    <div class="work-item">
+      <div class="work-label" style="font-size:16px;">もし、時間と資源が無限にあるとしたら何をしたいですか？可能性を広げて考えてください。</div>
+      <div class="work-box" style="height:260px;"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 26. 寿命あと1ヶ月 -->
+  <div class="slide work-slide" style="padding:48px 60px;">
+    <div class="work-item">
+      <div class="work-label" style="font-size:16px;">あなたの寿命があと1ヶ月だとします。あなたは何をしようと思いますか？最後にやりたいことは何ですか？</div>
+      <div class="work-box" style="height:260px;"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 27. ⑤振り返り -->
+  <div class="slide slide-phase">
+    <div class="phase-inner">
+      <div class="phase-title">⑤本日の振り返り（10分）</div>
+      <div class="phase-img">🤝</div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 28. アサインメント -->
+  <div class="slide slide-content" style="padding:48px 64px;">
+    <div class="slide-title">アサインメント</div>
+    <div class="assignment-box">
+      これまでに書いた質問への答えを参考にしながら、<br>
+      <strong>あなたのミッションステートメントを作成</strong>してみましょう。
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 29. ミッションステートメント（記入欄） -->
+  <div class="slide work-slide" style="padding:48px 60px;">
+    <div class="work-item">
+      <div class="work-label">ミッションステートメント</div>
+      <div class="work-box" style="height:320px;"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 30. ナインブロックス -->
+  <div class="slide slide-content" style="padding:36px 60px;">
+    <div class="slide-title">ナインブロックス</div>
+    <div class="nine-blocks">
+      <div class="block"></div><div class="block"></div><div class="block"></div>
+      <div class="block"></div><div class="block"></div><div class="block"></div>
+      <div class="block"></div><div class="block"></div><div class="block"></div>
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 31. ミッションステートメント例① -->
+  <div class="slide slide-content" style="padding:36px 60px;">
+    <div class="slide-title">ミッションステートメント：例</div>
+    <div class="mission-example">
+      日々勇気を持って、自分と周囲の人々を信じて生きよう。<br>
+      誠実さ、選択の自由、全ての人に対する愛という価値観に沿って生きよう。<br>
+      他の人々に対してだけでなく、自分に対しての約束も守るように努力しよう。<br>
+      真に生きるためには、今日困難という山を越えなければならないことを忘れないようにしよう。<br>
+      明日では遅すぎるかもしれないのだから。<br><br>
+      勝利や成功をてにすることで、私は新たな活力を見出そう。<br>
+      これからも決断は自らの手で選び取り、結果は甘んじて受けよう。<br>
+      弁解や責任転嫁はしない。できるだけ長く、心身ともに健康で強くいられるように努力しよう。<br>
+      できる限り他の人の手助けをし、人生という道中で私を助けてくれる人に感謝していこう。
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+  <!-- 32. ミッションステートメント例② -->
+  <div class="slide slide-content" style="padding:48px 64px;">
+    <div class="slide-title">ミッションステートメント：例</div>
+    <div class="mission-example" style="font-size:18px;">
+      希望を燃やし、勇気を持ってビジョンを実行していく。<br><br>
+      家庭においては、お互いの一番の友達になれるよう健全で愛情深い関係を築こう。<br>
+      職場においては、常に学ぶ環境を作ろう。<br>
+      人生においては、自然の法則にそった生き方をしていこう。
+    </div>
+    <div class="logo"><img src="https://sure-i.co.jp/themes/sure-i2022/common/img/logo--black.53b14b0d.svg" height="22" alt="SURE INNOVATION"></div>
+  </div>
+
+</div><!-- slideshow end -->
+
+<!-- ナビゲーション -->
+<div class="nav">
+  <button class="nav-btn" onclick="changeSlide(-1)">← 前へ</button>
+  <span class="nav-counter" id="counter">1 / 32</span>
+  <button class="nav-btn" onclick="changeSlide(1)">次へ →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + slides.length;
+  }
+
+  function changeSlide(dir) { showSlide(current + dir); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  });
+
+  document.getElementById('counter').textContent = '1 / ' + slides.length;
+</script>
+</body>
+</html>
